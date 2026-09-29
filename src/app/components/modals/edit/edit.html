@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <tui-textfield>
+      <label tuiLabel>Name</label>
+      <input tuiInput formControlName="productName" />
+    </tui-textfield>
+    <tui-error formControlName="productName" [order]="['required']" />
+  </div>
+
+  <div>
+    <tui-textfield>
+      <label tuiLabel>Price</label>
+      <input tuiInput formControlName="productPrice" />
+    </tui-textfield>
+    <tui-error formControlName="productPrice" [order]="['required', 'pattern']" />
+  </div>
+
+  <div>
+    <tui-textfield>
+      <label tuiLabel>Vat</label>
+      <input tuiInput formControlName="productVat" />
+    </tui-textfield>
+    <tui-error formControlName="productVat" [order]="['required', 'pattern']" />
+  </div>
+
+  <div class="actions">
+    <button tuiButton [disabled]="form.invalid" type="submit">Edit</button>
+    <button tuiButton type="button" (click)="cancel()">Cancel</button>
+  </div>
+</form>

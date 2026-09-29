@@ -1,0 +1,91 @@
+
+<div class="dashboard-wrapper">
+  <button class="button-add" tuiButton (click)="openAddModal()">
+    Add
+  </button>
+
+  @if (isMobile()) {
+  <div>
+    @for (item of products(); track item) {
+    <div tuiCardLarge="compact" tuiSurface="elevated">
+      <div class="product-card__row">
+        <span class="product-card__label">ID</span>
+        <span>{{ item.id }}</span>
+      </div>
+      <div class="product-card__row">
+        <span class="product-card__label">Name</span>
+        <span>{{ item.name }}</span>
+      </div>
+      <div class="product-card__row">
+        <span class="product-card__label">Price</span>
+        <span>{{ item.price }}</span>
+      </div>
+      <div class="product-card__row">
+        <span class="product-card__label">Vat</span>
+        <span>{{ item.vat }}</span>
+      </div>
+      <div class="product-card__actions">
+        <button appearance="action" iconStart="@tui.pencil" size="s" tuiIconButton type="button" (click)="openEditModal(item.id)">
+          Edit
+        </button>
+        <button appearance="action" iconStart="@tui.delete" size="s" tuiIconButton type="button" (click)="openRemoveModal(item.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+  } @else {
+  <table tuiTable [size]="tableSize()">
+    <thead>
+      <tr>
+        <th tuiTh>ID</th>
+        <th tuiTh>Name</th>
+        <th tuiTh>Price</th>
+        <th tuiTh>Vat</th>
+        <th tuiTh>Actions</th>
+      </tr>
+    </thead>
+    <tbody tuiTbody>
+      @for (item of products(); track item) {
+      <tr>
+        <td tuiTd>
+          <div tuiCell="l">
+            <span>
+                {{ item.id }}
+            </span>
+          </div>
+        </td>
+        <td tuiTd>
+          <div tuiCell="l">
+            <span>
+              {{ item.name }}
+            </span>
+          </div>
+        </td>
+        <td tuiTd>
+          <div tuiCell="l">
+            <span>{{ item.price }}</span>
+          </div>
+        </td>
+        <td tuiTd>
+          <div tuiCell="l">
+            <span>{{ item.vat }}</span>
+          </div>
+        </td>
+        <td tuiTd>
+          <span tuiStatus>
+            <button appearance="action" iconStart="@tui.pencil" size="s" tuiIconButton type="button" (click)="openEditModal(item.id)">
+              Edit
+            </button>
+            <button appearance="action" iconStart="@tui.delete" size="s" tuiIconButton type="button" (click)="openRemoveModal(item.id)">
+              Delete
+            </button>
+          </span>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  }
+</div>

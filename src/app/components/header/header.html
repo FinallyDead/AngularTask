@@ -1,0 +1,31 @@
+@if (authService.isAuthenticated()) {
+  <header tuiHeader="body-l">
+    @if (true) {
+    <nav>
+      <a 
+        tuiLink 
+        routerLink="/history"
+        routerLinkActive
+        #historyActive="routerLinkActive"
+        [class.active]="historyActive.isActive" 
+      >
+        History
+      </a>
+    
+      <a 
+        tuiLink 
+        routerLink="/dashboard"
+        routerLinkActive
+        #dashboardActive="routerLinkActive"
+        [class.active]="dashboardActive.isActive" 
+      >
+        Dashboard
+      </a>
+    
+      <a tuiLink (click)="Logout()">
+        Log out
+      </a>
+    </nav>
+    }
+  </header>
+}

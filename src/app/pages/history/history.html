@@ -1,0 +1,77 @@
+<div class="history-wrapper">
+  @if (isMobile()) {
+  <div>
+    @for (item of purchases(); track item) {
+    <div tuiCardLarge="compact" tuiSurface="elevated">
+      <div class="purchase-card__row">
+        <span class="purchase-card__label">ID</span>
+        <span>{{ item.id }}</span>
+      </div>
+      <div class="purchase-card__row">
+        <span class="purchase-card__label">Name</span>
+        <span>{{ item.productName }}</span>
+      </div>
+      <div class="purchase-card__row">
+        <span class="purchase-card__label">Customer</span>
+        <span>{{ item.username }}</span>
+      </div>
+      <div class="purchase-card__row">
+        <span class="purchase-card__label">Summary</span>
+        <span>{{ item.amount }}</span>
+      </div>
+      <div class="purchase-card__row">
+        <span class="purchase-card__label">Date of purchase</span>
+        <span>{{ item.date }}</span>
+      </div>
+    </div>
+    }
+  </div>
+  } @else {
+    <table tuiTable [size]="tableSize()">
+      <thead>
+        <tr>
+          <th tuiTh>ID</th>
+          <th tuiTh>Name</th>
+          <th tuiTh>Username of customer</th>
+          <th tuiTh>Summary</th>
+          <th tuiTh>Date of purchase</th>
+        </tr>
+      </thead>
+      <tbody tuiTbody>
+        @for (item of purchases(); track item) {
+        <tr>
+          <td tuiTd>
+            <div tuiCell="l">
+              <span>
+                {{ item.id }}
+              </span>
+            </div>
+          </td>
+          <td tuiTd>
+            <div tuiCell="l">
+              <span>
+                {{ item.productName }}
+              </span>
+            </div>
+          </td>
+          <td tuiTd>
+            <div tuiCell="l">
+              <span>{{ item.username }}</span>
+            </div>
+          </td>
+          <td tuiTd>
+            <div tuiCell="l">
+              <span>{{ item.amount }}</span>
+            </div>
+          </td>
+          <td tuiTd>
+            <div tuiCell="l">
+              <span>{{ item.date }}</span>
+            </div>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

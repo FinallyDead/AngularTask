@@ -1,0 +1,28 @@
+@import '@taiga-ui/styles/utils.less';
+
+.stack {
+  display: flex;
+  gap: inherit;
+  flex-direction: column;
+}
+
+.ticks-labels {
+  .tui-slider-ticks-labels();
+
+  margin-block-start: -1rem;
+}
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+form[tuiForm] {
+  max-width: 400px;
+  width: 100%;
+  height: fit-content;
+  padding: 0 15px;
+}

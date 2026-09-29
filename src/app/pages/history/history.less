@@ -1,0 +1,44 @@
+@import '@taiga-ui/styles/utils.less';
+
+[tuiTh],
+[tuiTd] {
+  border-inline-start: none;
+  border-inline-end: none;
+}
+
+[tuiTable][data-size='s'] [tuiTitle] {
+  flex-direction: row;
+  gap: 0.375rem;
+}
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.history-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: auto;
+  width: 100%;
+  max-width: 60rem;
+  padding: 80px 15px 0;
+
+  @media @tui-tablet-min {
+    padding-top: 0;
+  }
+}
+
+.purchase-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.purchase-card__label {
+  color: rgba(255, 255, 255, 0.7);
+}

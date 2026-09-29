@@ -1,0 +1,51 @@
+@import '@taiga-ui/styles/taiga-ui-theme.less';
+@import '@taiga-ui/styles/taiga-ui-fonts.less';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+app-root, main, tui-root {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+}
+
+input,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}

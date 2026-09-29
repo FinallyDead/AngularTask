@@ -1,0 +1,30 @@
+<form tuiForm [formGroup]="form" (ngSubmit)="submitLogin()">
+  <header tuiHeader>
+    <h3 tuiTitle>
+      Log in Form
+    </h3>
+  </header>
+
+  <tui-textfield>
+    <label tuiLabel>User name</label>
+    <input formControlName="loginValue" tuiInput />
+  </tui-textfield>
+  <tui-error formControlName="loginValue" [order]="['required']" />
+
+  <tui-textfield>
+    <label tuiLabel>Password</label>
+    <input formControlName="passwordValue" tuiInput type="password" />
+    <tui-icon tuiPassword />
+  </tui-textfield>
+  <tui-error formControlName="passwordValue" [order]="['required','minlength', 'pattern']" />
+
+  <p>
+    <tui-error [error]="loginErrorText()" />
+  </p>
+
+  <footer>
+    <button tuiButton [disabled]="form.invalid" type="submit">
+      Log in
+    </button>
+  </footer>
+</form>
